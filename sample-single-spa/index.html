@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>SpaceXPlorer with Microfrontends</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="importmap-type" content="systemjs-importmap">
+  <script type="systemjs-importmap" crossorigin>
+      {
+        "imports": {
+          "sample-vue": "http://localhost:8080/js/app.js",
+          "single-spa": "https://cdnjs.cloudflare.com/ajax/libs/single-spa/4.4.1/system/single-spa.min.js",
+          "sample-vue-parcel": "http://localhost:8081/js/app.js",
+          "vue-parcel2": "http://localhost:8082/js/app.js",
+          "vue": "https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js",
+          "vue-router": "https://cdn.jsdelivr.net/npm/vue-router@3.1.3/dist/vue-router.min.js",
+          "axios": "https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"
+        }
+      }
+    </script>
+  <!-- PRELOADS -->
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/single-spa/4.4.1/system/single-spa.min.js"
+    as="script" crossorigin="anonymous" />
+  <link rel="preload" href="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js" as="script" crossorigin="anonymous" />
+  <link rel="preload" href="https://cdn.jsdelivr.net/npm/vue-router@3.1.3/dist/vue-router.min.js" as="script"
+    crossorigin="anonymous" />
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js" as="script"
+    crossorigin="anonymous" />
+  <!-- SCRIPTS -->
+  <script src="https://unpkg.com/import-map-overrides@1.7.2/dist/import-map-overrides.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/systemjs/6.1.1/system.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/systemjs/6.1.1/extras/amd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/systemjs/6.1.1/extras/named-exports.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/systemjs/6.1.1/extras/named-register.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/systemjs/6.1.1/extras/use-default.js"></script>
+</head>
+
+<body>
+  <script>
+    Promise.all([System.import('single-spa'), System.import('vue'), System.import('vue-router'), System.import('axios')]).then(function (modules) {
+      const singleSpa = modules[0];
+
+      singleSpa.registerApplication(
+        'sample-vue',
+        () => System.import('sample-vue'),
+        location => location.pathname.startsWith('/') || location.hash.startsWith('#/about')
+      );
+      singleSpa.start();
+    })
+  </script>
+  <!-- See https://github.com/joeldenning/import-map-overrides#user-interface  -->
+  <import-map-overrides-full show-when-local-storage="overrides-ui"></import-map-overrides-full>
+</body>
+
+</html>
