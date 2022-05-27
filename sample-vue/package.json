@@ -19,6 +19,7 @@
     "vue": "^2.6.12",
     "vue-bootstrap-sidebar": "^1.0.9",
     "vue-chartjs": "^4.1.0",
+    "vue-gauge": "^1.0.3",
     "vue-icon-packs": "^1.1.3",
     "vue-router": "^3.4.9"
   },

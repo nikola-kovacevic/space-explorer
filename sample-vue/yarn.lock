@@ -8301,6 +8301,11 @@ vue-functional-data-merge@^3.1.0:
   resolved "https://registry.npm.taobao.org/vue-functional-data-merge/download/vue-functional-data-merge-3.1.0.tgz"
   integrity "sha1-CKd5dYO381aAWH+KHVHXKaodxlc= sha512-leT4kdJVQyeZNY1kmnS1xiUlQ9z1B/kdBFCILIjYYQDqZgLqCLa0UhjSSeRX6c3mUe6U5qYeM8LrEqkHJ1B4LA=="
 
+vue-gauge@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/vue-gauge/-/vue-gauge-1.0.3.tgz#383109b9c6181d1b7df065cd295ef54b9591df04"
+  integrity sha512-hIjjDxAjJ5NRKeEVUpwZQ7IA+LONfNE7C51Z5TeEvIEl3jqu2aLE5RnIGQaLdLBYzbK807AiCvYt1nM0m4D6Cw==
+
 vue-hot-reload-api@^2.3.0:
   version "2.3.4"
   resolved "https://registry.npm.taobao.org/vue-hot-reload-api/download/vue-hot-reload-api-2.3.4.tgz"
