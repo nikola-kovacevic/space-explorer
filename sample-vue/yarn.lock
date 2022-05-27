@@ -2775,6 +2775,11 @@ cosmiconfig@^5.0.0:
     js-yaml "^3.13.1"
     parse-json "^4.0.0"
 
+countdown-vue@^1.1.5:
+  version "1.1.5"
+  resolved "https://registry.yarnpkg.com/countdown-vue/-/countdown-vue-1.1.5.tgz#3ea4d1d6b09a4506ba6e9bddf0ae73f211d43737"
+  integrity sha512-k96dzE+XUcYT8vWoWSaCk65+uVuVhTWAbgKbmS5USAiAUwF0PbXNbNCzWVd6SKeihP9vygqsPSSX4xnR7O/kBg==
+
 create-ecdh@^4.0.0:
   version "4.0.4"
   resolved "https://registry.npm.taobao.org/create-ecdh/download/create-ecdh-4.0.4.tgz"

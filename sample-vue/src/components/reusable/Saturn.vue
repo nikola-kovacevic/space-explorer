@@ -1,5 +1,17 @@
 <template>
   <div class="space">
+    <div class="destination-title">
+      <div class="destination">
+        <h3 class="card-title">Destination in</h3>
+        <Countdown
+          end="August 22, 2023"
+          showDays
+          showHours
+          showMinutes
+          showSeconds
+        ></Countdown>
+      </div>
+    </div>
     <div id="saturn">
       <div class="planet bottom planet-bg"></div>
       <div class="rings"></div>
@@ -8,7 +20,29 @@
   </div>
 </template>
 
+<script>
+import Countdown from "countdown-vue";
+
+export default {
+  components: { Countdown },
+};
+</script>
+
 <style scoped>
+.destination-title {
+  top: 5%;
+  position: absolute;
+  left: 50%;
+}
+
+.destination {
+  position: relative;
+  left: -50%;
+}
+
+.vuejs-countdown {
+  color: white;
+}
 .space {
   background: black;
   width: 100%;
@@ -20,7 +54,8 @@
   height: 400px;
   position: relative;
   margin: auto;
-  transform: rotateZ(-15deg);
+  margin-top: 20px;
+  transform: scale(0.8) rotateZ(-15deg);
 }
 
 .rings {
