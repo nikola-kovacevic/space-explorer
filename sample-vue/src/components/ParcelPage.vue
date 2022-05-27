@@ -16,7 +16,7 @@ export default {
   },
   methods: {
     loadParcel() {
-      var domElement = document.getElementById("parcel");
+      let domElement = document.getElementById("parcel");
       /*global System*/
       mountParcel(() => System.import("sample-vue-parcel"), { domElement });
 

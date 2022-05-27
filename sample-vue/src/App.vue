@@ -1,36 +1,34 @@
 <template>
   <div id="app">
-    <div id="App">
-      <BootstrapSidebar
-        :initial-show="initialShow"
-        :links="links"
-        :header="header"
-        :fa="false"
-        @sidebarChanged="onSidebarChanged"
-      >
-        <template v-slot:navbar>
-          <b-navbar
-            id="mainNavbar"
-            toggleable="lg"
-            type="light"
-            variant="light"
-            fixed="top"
-          >
-            <b-navbar-nav>
-              <b-nav-item to="/">
-                <b> <Rocket /> SpaceXPlorer </b>
-              </b-nav-item>
-            </b-navbar-nav>
-          </b-navbar>
-        </template>
+    <BootstrapSidebar
+      :initial-show="initialShow"
+      :links="links"
+      :header="header"
+      :fa="false"
+      @sidebarChanged="onSidebarChanged"
+    >
+      <template v-slot:navbar>
+        <b-navbar
+          id="mainNavbar"
+          toggleable="lg"
+          type="dark"
+          variant="dark"
+          fixed="top"
+        >
+          <b-navbar-nav>
+            <b-nav-item to="/">
+              <b> <Rocket /> SpaceXPlorer </b>
+            </b-nav-item>
+          </b-navbar-nav>
+        </b-navbar>
+      </template>
 
-        <template v-slot:content>
-          <b-container fluid style="margin-top: 56px">
-            <router-view class="vue-app"></router-view>
-          </b-container>
-        </template>
-      </BootstrapSidebar>
-    </div>
+      <template v-slot:content>
+        <b-container fluid style="margin-top: 56px">
+          <router-view class="vue-app"></router-view>
+        </b-container>
+      </template>
+    </BootstrapSidebar>
   </div>
 </template>
 
@@ -59,30 +57,51 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
+body {
+  background: #a1a2a6 !important;
+}
+
 #app {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+
+  color: #003153;
 }
 
-.vue-bootstrap-sidebar .list-group-item a.sidebar-menu-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.default-theme .list-group-item .sidebar-menu-item,
+.vue-bootstrap-sidebar {
+  background: #030917 !important;
+  color: white !important;
+  font-weight: bold;
+}
+
+.default-theme .bar1,
+.default-theme .bar2,
+.default-theme .bar3 {
+  background-color: white !important;
+}
+
+.vue-bootstrap-sidebar {
+  .sidebar-header {
+    height: 56px;
+  }
+
+  .items-wrapper,
+  .default-theme .list-group-item .sidebar-menu-item,
+  .sidebar-header {
+    background: #030917 !important;
+  }
+
+  .list-group-item a.sidebar-menu-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 }
 </style>
-<!-- <style lang="scss" scoped>
-.vue-app {
-  border-style: solid;
-  border-width: 3px;
-  border-color: green;
-}
-</style> -->
 <style lang="scss">
-/* @import "node_modules/bootstrap/scss/bootstrap";
-@import "node_modules/bootstrap-vue/src/index.scss"; */
 @import "node_modules/vue-bootstrap-sidebar/src/scss/default-theme";
 </style>

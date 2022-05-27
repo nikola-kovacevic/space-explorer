@@ -111,7 +111,7 @@ $darkred: #f01a19;
 
 .space-container {
   position: relative;
-  min-height: 100vh;
+  min-height: calc(100vh - 90px);
   background-color: #000;
   overflow: hidden;
 }
