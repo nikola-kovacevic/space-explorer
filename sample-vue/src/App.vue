@@ -17,7 +17,7 @@
             fixed="top"
           >
             <b-navbar-nav>
-              <b-nav-item>
+              <b-nav-item to="/">
                 <b> <Rocket /> SpaceXPlorer </b>
               </b-nav-item>
             </b-navbar-nav>
