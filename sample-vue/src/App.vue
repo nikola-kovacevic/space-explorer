@@ -102,6 +102,3 @@ body {
   }
 }
 </style>
-<style lang="scss">
-@import "node_modules/vue-bootstrap-sidebar/src/scss/default-theme";
-</style>

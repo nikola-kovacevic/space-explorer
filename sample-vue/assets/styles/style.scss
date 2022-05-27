@@ -1,7 +1,4 @@
-.h1-vue {
-    color: green;
-}
+@import '../../node_modules/bootstrap/dist/css/bootstrap.css';
+@import '../../node_modules/bootstrap-vue/dist/bootstrap-vue.css';
 
-.p-vue {
-    color: green;
-}
+@import "../../node_modules/vue-bootstrap-sidebar/src/scss/default-theme";

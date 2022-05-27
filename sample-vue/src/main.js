@@ -3,9 +3,7 @@ import Router from "vue-router";
 
 import singleSpaVue from "single-spa-vue";
 import { Rocket } from "vue-icon-packs/oc";
-import { BootstrapVue, BootstrapVueIcons } from "bootstrap-vue";
-import "bootstrap/dist/css/bootstrap.css";
-import "bootstrap-vue/dist/bootstrap-vue.css";
+import { BootstrapVue } from "bootstrap-vue";
 
 import VueGauge from "vue-gauge";
 
@@ -22,7 +20,6 @@ Vue.config.productionTip = false;
 
 Vue.use(Router);
 Vue.use(BootstrapVue);
-Vue.use(BootstrapVueIcons);
 
 Vue.component("Rocket", Rocket);
 Vue.component("Saturn", Saturn);
