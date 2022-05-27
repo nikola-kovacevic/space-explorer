@@ -1,6 +1,7 @@
 <template>
   <div class="space-container">
-    <div class="space"></div>
+    <div class="star"></div>
+    <div v-for="meteor in meteors" :key="meteor" :class="meteor"></div>
 
     <div class="rocket">
       <div class="rocket-body">
@@ -17,9 +18,86 @@
 <script>
 export default {
   name: "about",
+  data() {
+    return {
+      meteors: new Array(20).fill("meteor").map((el, i) => `${el}-${i + 1}`),
+    };
+  },
 };
 </script>
 <style lang="scss" scoped>
+/* Meteor */
+$n: 15;
+$s: 300;
+
+html,
+body {
+  height: 100%;
+  overflow: hidden;
+  background-image: radial-gradient(ellipse at top, #080e21 0%, #1b2735 95%);
+}
+
+$shadow: ();
+
+@for $i from 1 through $s {
+  $x: random(1920);
+  $y: random(1000);
+  $shadow: $shadow, ($x + px $y + px #fff) !global;
+}
+
+.star {
+  width: 1px;
+  height: 1px;
+  background: transparent;
+  box-shadow: $shadow;
+}
+
+@for $i from 1 through $n {
+  $v: random(90) + 9; // left
+  $h: random(250) + 50; // top
+  $d: random(70) / 10 + 3;
+  .meteor-#{$i} {
+    position: absolute;
+    top: $h + px;
+    left: $v * 1%;
+    width: 300px;
+    height: 1px;
+    transform: rotate(-45deg);
+    background-image: linear-gradient(to right, #fff, rgba(255, 255, 255, 0));
+    animation: meteor $d + s linear infinite;
+    &:before {
+      content: "";
+      position: absolute;
+      width: 4px;
+      height: 5px;
+      border-radius: 50%;
+      margin-top: -2px;
+      background: rgba(#fff, 0.7);
+      box-shadow: 0 0 15px 3px #fff;
+    }
+  }
+}
+
+@keyframes meteor {
+  0% {
+    opacity: 1;
+    margin-top: -300px;
+    margin-right: -300px;
+  }
+  12% {
+    opacity: 0;
+  }
+  15% {
+    margin-top: 300px;
+    margin-left: -600px;
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+/* Rocket */
+
 $white: #f5f5f5;
 $lightgrey: #dadada;
 $midgrey: #b4b2b2;
@@ -36,51 +114,6 @@ $darkred: #f01a19;
   min-height: 100vh;
   background-color: #000;
   overflow: hidden;
-}
-
-.space {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  height: 1px;
-  width: 1px;
-  background-color: #fff;
-  border-radius: 50%;
-  box-shadow: -46vw 35vh 0px 0px #fff, -1vw 36vh 1px 1px #fff,
-    -5vw -50vh 0px 1px #fff, -19vw -24vh 2px 3px #fff, -21vw 45vh 3px 0px #fff,
-    -15vw -25vh 2px 0px #fff, 21vw -14vh 0px 1px #fff, 41vw 34vh 0px 3px #fff,
-    16vw -25vh 2px 2px #fff, -41vw -14vh 0px 2px #fff, 6vw 29vh 1px 0px #fff,
-    11vw 25vh 3px 2px #fff, 24vw 32vh 2px 0px #fff, -30vw -41vh 2px 2px #fff,
-    3vw -40vh 3px 0px #fff, 49vw -34vh 2px 2px #fff, 4vw -48vh 3px 1px #fff,
-    -20vw -50vh 0px 0px #fff, 12vw -37vh 0px 0px #fff, -1vw 33vh 1px 3px #fff,
-    18vw 5vh 2px 3px #fff, 6vw 31vh 3px 2px #fff, -12vw 48vh 1px 3px #fff,
-    -42vw -20vh 0px 0px #fff, -27vw -27vh 1px 0px #fff, -46vw -10vh 0px 3px #fff,
-    2vw -17vh 3px 1px #fff, 46vw -24vh 1px 1px #fff, 40vw 1vh 3px 2px #fff,
-    12vw 9vh 0px 2px #fff, -27vw -48vh 0px 0px #fff, -18vw 21vh 1px 2px #fff,
-    46vw -28vh 0px 0px #fff, -4vw -6vh 0px 2px #fff, 19vw -49vh 0px 3px #fff,
-    -8vw 23vh 3px 1px #fff, 12vw 10vh 3px 2px #fff, 4vw 39vh 1px 0px #fff,
-    -28vw 18vh 1px 1px #fff, 49vw 37vh 2px 0px #fff, -41vw -15vh 2px 2px #fff,
-    -45vw -47vh 0px 2px #fff, 6vw -39vh 1px 3px #fff, -5vw 27vh 2px 1px #fff,
-    21vw 8vh 2px 3px #fff, -17vw -8vh 2px 3px #fff, -33vw 37vh 3px 1px #fff,
-    -48vw -50vh 2px 0px #fff, 27vw 6vh 1px 0px #fff, -11vw 46vh 0px 1px #fff,
-    -50vw -28vh 2px 2px #fff, 30vw 8vh 3px 2px #fff, 20vw -14vh 1px 1px #fff,
-    -8vw 5vh 1px 0px #fff, 3vw 37vh 3px 1px #fff, 20vw -27vh 2px 2px #fff,
-    4vw -4vh 1px 0px #fff, 49vw 34vh 3px 0px #fff, -48vw 27vh 3px 3px #fff,
-    25vw 14vh 3px 2px #fff, 5vw 10vh 2px 2px #fff, 21vw -34vh 1px 2px #fff,
-    46vw -2vh 3px 0px #fff, -41vw 1vh 0px 1px #fff, 38vw -4vh 1px 2px #fff,
-    -4vw 2vh 0px 0px #fff, -10vw 12vh 2px 0px #fff, -45vw 21vh 0px 1px #fff,
-    6vw 26vh 2px 3px #fff, -30vw 24vh 2px 3px #fff, 23vw 8vh 3px 2px #fff,
-    -43vw -8vh 1px 3px #fff, 39vw -9vh 0px 1px #fff, -50vw 31vh 0px 2px #fff,
-    2vw 16vh 3px 0px #fff, 11vw -50vh 0px 1px #fff, 16vw -15vh 1px 2px #fff,
-    -12vw 30vh 2px 2px #fff, 41vw -11vh 3px 0px #fff, -3vw 39vh 2px 1px #fff,
-    12vw 9vh 1px 1px #fff, 2vw 13vh 2px 1px #fff, 7vw -19vh 1px 3px #fff,
-    -20vw 27vh 3px 2px #fff, -19vw -12vh 0px 1px #fff, 1vw -8vh 2px 3px #fff,
-    24vw -37vh 1px 0px #fff, -38vw 8vh 1px 0px #fff, 50vw -31vh 0px 3px #fff,
-    25vw -33vh 0px 3px #fff, 25vw 31vh 1px 0px #fff, -5vw -11vh 0px 1px #fff,
-    44vw 6vh 3px 3px #fff, -50vw 44vh 3px 3px #fff, -43vw 21vh 0px 1px #fff,
-    -49vw 2vh 2px 0px #fff, -32vw 33vh 2px 0px #fff, -5vw -43vh 2px 0px #fff,
-    23vw 8vh 0px 1px #fff, 33vw -21vh 2px 0px #fff;
-  animation: zoom 10s alternate infinite;
 }
 
 @keyframes zoom {
