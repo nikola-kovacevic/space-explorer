@@ -20,13 +20,21 @@
 
     <b-row>
       <b-col class="dashboard-item" sm>
-        <div class="card">
-          <Saturn />
-        </div>
-      </b-col>
-      <b-col class="dashboard-item" sm>
-        <div class="card">
-          <Saturn />
+        <div class="card p-4">
+          <h3 class="card-title">Crew</h3>
+          <b-list-group class="bg-transparent">
+            <b-list-group-item
+              v-for="astronaut in crew"
+              :key="astronaut.name"
+              class="d-flex align-items-center"
+            >
+              <b-avatar :src="astronaut.avatar" class="mr-3"></b-avatar>
+              <span class="ml-1 mr-auto">{{ astronaut.name }}</span>
+              <b-badge class="info" variant="light"
+                >{{ astronaut.count }} hours</b-badge
+              >
+            </b-list-group-item>
+          </b-list-group>
         </div>
       </b-col>
       <b-col class="dashboard-item" sm>
@@ -51,6 +59,28 @@ export default {
         arcColors: ["rgb(255,84,84)", "rgb(239,214,19)", "rgb(61,204,91)"],
         rangeLabel: [],
       },
+      crew: [
+        {
+          name: "Wheezy Joe Hoosenater",
+          avatar: "https://cdn-icons-png.flaticon.com/512/547/547413.png",
+          count: 27,
+        },
+        {
+          name: "Buttermilk Cocktoasten",
+          avatar: "https://cdn-icons-png.flaticon.com/512/547/547413.png",
+          count: 13,
+        },
+        {
+          name: "Huckleberry Pennywhistle",
+          avatar: "https://cdn-icons-png.flaticon.com/512/547/547413.png",
+          count: 3,
+        },
+        {
+          name: "Cornbread Quakenbush",
+          avatar: "https://cdn-icons-png.flaticon.com/512/547/547413.png",
+          count: 32,
+        },
+      ],
     };
   },
 };
@@ -84,6 +114,21 @@ div.py-3 {
           color: #eee;
           text-transform: uppercase;
           font-weight: bold;
+        }
+
+        .list-group {
+          width: 100%;
+
+          .list-group-item {
+            color: white;
+            background: transparent;
+            justify-content: space-between;
+          }
+
+          .info {
+            color: #fff;
+            background-color: #17a2b8;
+          }
         }
       }
     }
