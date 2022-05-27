@@ -11,7 +11,7 @@ import App from "./App.vue";
 import Home from "./components/Home.vue";
 import Space from "./components/Space.vue";
 import ParcelPage from "./components/ParcelPage.vue";
-import Saturn from "./components/Saturn.vue";
+import Saturn from "./components/reusable/Saturn.vue";
 
 import "../assets/styles/style.scss";
 
