@@ -1,28 +1,15 @@
-import Vue from 'vue'
-import Home from './components/Home.vue'
-import BootstrapVue from 'bootstrap-vue'
-import 'bootstrap/dist/css/bootstrap.css'
-import 'bootstrap-vue/dist/bootstrap-vue.css'
-import '../assets/styles/style.scss';
-import singleSpaVue from 'single-spa-vue';
+import Vue from "vue";
+import Home from "./components/Home.vue";
+import singleSpaVue from "single-spa-vue";
 
-Vue.config.productionTip = false
-
-Vue.use(BootstrapVue)
+Vue.config.productionTip = false;
 
 const singleSpa = singleSpaVue({
   Vue,
   appOptions: {
-    render: (h) => h(Home)
-  }
+    render: (h) => h(Home),
+  },
 });
-
-/*const vueParcel = {
-  name: "vue-parcel",
-  bootstrap: singleSpa.bootstrap(),
-  mount: singleSpa.mount(),
-  unmount: singleSpa.unmount()
-}*/
 
 export const name = "vue-parcel2";
 
