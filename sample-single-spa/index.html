@@ -40,7 +40,7 @@
 
 <body>
   <script>
-    Promise.all([System.import('single-spa'), System.import('vue'), System.import('vue-router'), System.import('axios')]).then(function (modules) {
+    Promise.all([System.import('single-spa'), System.import('vue'), System.import('vue-router')]).then(function (modules) {
       const singleSpa = modules[0];
 
       singleSpa.registerApplication(
@@ -48,6 +48,13 @@
         () => System.import('sample-vue'),
         location => location.pathname.startsWith('/') || location.hash.startsWith('#/about')
       );
+
+      singleSpa.registerApplication(
+        'vue-parcel2',
+        () => System.import('vue-parcel2'),
+        location => location.hash.startsWith('#/space')
+      );
+
       singleSpa.start();
     })
   </script>
