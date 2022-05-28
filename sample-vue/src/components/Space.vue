@@ -3,6 +3,8 @@
     <div class="star"></div>
     <div v-for="meteor in meteors" :key="meteor" :class="meteor"></div>
 
+    <img class="astronaut" :src="getPic(astronaut)" alt="astronaut" />
+
     <div class="rocket">
       <div class="rocket-body">
         <div class="body"></div>
@@ -21,7 +23,13 @@ export default {
   data() {
     return {
       meteors: new Array(20).fill("meteor").map((el, i) => `${el}-${i + 1}`),
+      astronaut: "astronaut",
     };
+  },
+  methods: {
+    getPic(name) {
+      return `./../../public/images/${name}.png`;
+    },
   },
 };
 </script>
@@ -95,6 +103,16 @@ $shadow: ();
   100% {
     opacity: 0;
   }
+}
+/* Astronaut */
+
+.astronaut {
+  width: 100px;
+  height: auto;
+  z-index: 10000;
+  position: absolute;
+  top: 50%;
+  left: 50%;
 }
 /* Rocket */
 
