@@ -26,7 +26,8 @@ Vue.component("Saturn", Saturn);
 
 Vue.component("vue-gauge", VueGauge);
 
-export var mountParcel;
+export let mountParcel;
+export let updateParcel;
 
 const router = new Router({
   routes: [
@@ -59,8 +60,10 @@ const singleSpa = singleSpaVue({
 export const bootstrap = [
   (props) => {
     mountParcel = props.mountParcel;
+    updateParcel = props.updateParcel;
     return Promise.resolve();
   },
 ];
 export const mount = [singleSpa.mount];
 export const unmount = [singleSpa.unmount];
+export const update = [singleSpa.update];

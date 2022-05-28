@@ -13,8 +13,11 @@ const singleSpa = singleSpaVue({
 
 export const name = "vue-parcel2";
 
-export const bootstrap = singleSpa.bootstrap;
-
+export const bootstrap = [
+  () => {
+    return Promise.resolve();
+  },
+];
 export const mount = singleSpa.mount;
-
 export const unmount = singleSpa.unmount;
+export const update = (args) => Promise.resolve(console.log(args));

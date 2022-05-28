@@ -1,8 +1,18 @@
 <template>
-  <div class="py-3">
-    <h1 class="h1-vue">Main application</h1>
-    <div id="parcel"></div>
-    <div id="parcel2"></div>
+  <div>
+    <b-row>
+      <b-col>
+        <b-button variant="danger" @click="updateData()">Button</b-button>
+      </b-col>
+    </b-row>
+    <b-row>
+      <b-col>
+        <div id="parcel"></div>
+      </b-col>
+      <b-col>
+        <div id="parcel2"></div>
+      </b-col>
+    </b-row>
   </div>
 </template>
 
@@ -11,33 +21,34 @@ import { mountParcel } from "../main.js";
 
 export default {
   name: "parcelPage",
+  data() {
+    return {
+      first: "",
+      second: "",
+    };
+  },
   mounted() {
     this.loadParcel();
   },
   methods: {
     loadParcel() {
-      let domElement = document.getElementById("parcel");
       /*global System*/
-      mountParcel(() => System.import("sample-vue-parcel"), { domElement });
+      this.first = mountParcel(() => System.import("sample-vue-parcel"), {
+        domElement: document.getElementById("parcel"),
+      });
 
-      domElement = document.getElementById("parcel2");
       /*global System*/
-      mountParcel(() => System.import("vue-parcel2"), { domElement });
+      this.second = mountParcel(() => System.import("vue-parcel2"), {
+        domElement: document.getElementById("parcel2"),
+      });
+    },
+
+    updateData() {
+      console.log(this.second);
+      console.log(this.second.getStatus());
+
+      this.second.update("1");
     },
   },
 };
 </script>
-
-<!-- <style scoped>
-input[type="text"],
-select {
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-  margin-top: 25px;
-}
-</style> -->
