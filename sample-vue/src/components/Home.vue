@@ -61,7 +61,7 @@ export default {
       },
       crew: [
         {
-          name: "Wheezy Joe Hoosenater",
+          name: "Cinnabuns Pieplow",
           avatar: "https://cdn-icons-png.flaticon.com/512/547/547413.png",
           count: 27,
         },
@@ -76,7 +76,7 @@ export default {
           count: 3,
         },
         {
-          name: "Cornbread Quakenbush",
+          name: "Foncy Porkins",
           avatar: "https://cdn-icons-png.flaticon.com/512/547/547413.png",
           count: 32,
         },

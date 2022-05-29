@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
   <meta charset="utf-8">
@@ -15,6 +15,7 @@
           "single-spa": "https://cdnjs.cloudflare.com/ajax/libs/single-spa/4.4.1/system/single-spa.min.js",
           "sample-vue-parcel": "http://localhost:8081/js/app.js",
           "vue-parcel2": "http://localhost:8082/js/app.js",
+          "space": "http://localhost:8083/js/app.js",
           "vue": "https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js",
           "vue-router": "https://cdn.jsdelivr.net/npm/vue-router@3.1.3/dist/vue-router.min.js",
           "axios": "https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"
@@ -46,12 +47,12 @@
       singleSpa.registerApplication(
         'sample-vue',
         () => System.import('sample-vue'),
-        location => location.pathname.startsWith('/') || location.hash.startsWith('#/about')
+        location => location.pathname.startsWith('/')
       );
 
       singleSpa.registerApplication(
-        'vue-parcel2',
-        () => System.import('vue-parcel2'),
+        'space',
+        () => System.import('space'),
         location => location.hash.startsWith('#/space')
       );
 
