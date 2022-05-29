@@ -36,7 +36,7 @@
 import BootstrapSidebar from "vue-bootstrap-sidebar";
 
 export default {
-  name: "sample-vue",
+  name: "spacexplorer",
   components: {
     BootstrapSidebar,
   },

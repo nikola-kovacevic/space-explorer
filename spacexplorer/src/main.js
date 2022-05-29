@@ -64,6 +64,6 @@ export const bootstrap = [
     return Promise.resolve();
   },
 ];
-export const mount = [singleSpa.mount];
-export const unmount = [singleSpa.unmount];
-export const update = [singleSpa.update];
+export const mount = singleSpa.mount;
+export const unmount = singleSpa.unmount;
+export const update = singleSpa.update;
