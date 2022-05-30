@@ -11,8 +11,6 @@ import App from "./App.vue";
 import Home from "./components/Home.vue";
 import Space from "./components/Space.vue";
 import ParcelPage from "./components/ParcelPage.vue";
-// Reusable
-import Saturn from "./components/reusable/Saturn.vue";
 
 import "../assets/styles/style.scss";
 
@@ -22,7 +20,6 @@ Vue.use(Router);
 Vue.use(BootstrapVue);
 
 Vue.component("Rocket", Rocket);
-Vue.component("Saturn", Saturn);
 
 Vue.component("vue-gauge", VueGauge);
 

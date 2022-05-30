@@ -3,7 +3,7 @@
     <b-row>
       <b-col class="dashboard-item" sm="8">
         <div class="card">
-          <Saturn />
+          <div id="parcel-saturn"></div>
         </div>
       </b-col>
       <b-col class="dashboard-item" sm="4">
@@ -38,15 +38,15 @@
         </div>
       </b-col>
       <b-col class="dashboard-item" sm>
-        <div class="card">
-          <Saturn />
-        </div>
+        <div class="card"></div>
       </b-col>
     </b-row>
   </div>
 </template>
 
 <script>
+import { mountParcel } from "../main.js";
+
 export default {
   name: "home",
   data() {
@@ -83,9 +83,25 @@ export default {
       ],
     };
   },
+  mounted() {
+    this.loadParcel();
+  },
+  methods: {
+    loadParcel() {
+      /*global System*/
+      this.second = mountParcel(() => System.import("parcel-saturn"), {
+        domElement: document.getElementById("parcel-saturn"),
+      });
+    },
+  },
 };
 </script>
 <style lang="scss">
+#parcel-saturn {
+  width: 100%;
+  background: black;
+}
+
 div.py-3 {
   div.row {
     div.dashboard-item {
