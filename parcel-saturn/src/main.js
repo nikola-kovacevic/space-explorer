@@ -11,7 +11,7 @@ const singleSpa = singleSpaVue({
   },
 });
 
-export const name = "vue-parcel2";
+export const name = "parcel-saturn";
 
 export const bootstrap = [
   () => {

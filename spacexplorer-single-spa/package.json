@@ -8,6 +8,6 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "serve": "^11.1.0"
+    "serve": "^13.0.2"
   }
 }

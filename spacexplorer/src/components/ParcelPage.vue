@@ -10,7 +10,7 @@
         <div id="parcel"></div>
       </b-col>
       <b-col>
-        <div id="parcel2"></div>
+        <div id="parcel-saturn"></div>
       </b-col>
     </b-row>
   </div>
@@ -38,8 +38,8 @@ export default {
       });
 
       /*global System*/
-      this.second = mountParcel(() => System.import("vue-parcel2"), {
-        domElement: document.getElementById("parcel2"),
+      this.second = mountParcel(() => System.import("parcel-saturn"), {
+        domElement: document.getElementById("parcel-saturn"),
       });
     },
 
