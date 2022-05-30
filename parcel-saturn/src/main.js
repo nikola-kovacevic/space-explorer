@@ -12,9 +12,8 @@ const singleSpa = singleSpaVue({
 });
 
 export const name = "parcel-saturn";
-
-export const bootstrap = [() => Promise.resolve()];
+export const bootstrap = singleSpa.bootstrap;
 export const mount = singleSpa.mount;
 export const unmount = singleSpa.unmount;
 export const update = (args) =>
-  Promise.resolve("Parcel Saturn", console.log(args));
+  Promise.resolve(console.log("Parcel Saturn", args));
