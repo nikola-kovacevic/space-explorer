@@ -5,7 +5,6 @@
       :links="links"
       :header="header"
       :fa="false"
-      @sidebarChanged="onSidebarChanged"
     >
       <template v-slot:navbar>
         <b-navbar
@@ -47,12 +46,8 @@ export default {
       links: [
         { name: "Dashboard", href: { name: "home" } },
         { name: "Space", href: { name: "space" } },
-        { name: "Parcel", href: { name: "parcelPage" } },
       ],
     };
-  },
-  methods: {
-    onSidebarChanged() {},
   },
 };
 </script>

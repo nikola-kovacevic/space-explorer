@@ -10,7 +10,6 @@ import VueGauge from "vue-gauge";
 import App from "./App.vue";
 import Home from "./components/Home.vue";
 import Space from "./components/Space.vue";
-import ParcelPage from "./components/ParcelPage.vue";
 
 import "../assets/styles/style.scss";
 
@@ -37,11 +36,6 @@ const router = new Router({
       path: "/space",
       name: "space",
       component: Space,
-    },
-    {
-      path: "/parcel_page",
-      name: "parcelPage",
-      component: ParcelPage,
     },
   ],
 });

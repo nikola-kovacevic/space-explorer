@@ -44,6 +44,8 @@ export default {
         arcColors: ["rgb(255,84,84)", "rgb(239,214,19)", "rgb(61,204,91)"],
         rangeLabel: [],
       },
+      first: null,
+      second: null,
     };
   },
   mounted() {
@@ -59,6 +61,12 @@ export default {
       this.second = mountParcel(() => System.import("parcel-saturn"), {
         domElement: document.getElementById("parcel-saturn"),
       });
+    },
+    updateData() {
+      console.log(this.second);
+      console.log(this.second.getStatus());
+
+      this.second.update("1");
     },
   },
 };
