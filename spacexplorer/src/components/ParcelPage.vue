@@ -7,7 +7,7 @@
     </b-row>
     <b-row>
       <b-col>
-        <div id="parcel"></div>
+        <div id="parcel-crew-manifest"></div>
       </b-col>
       <b-col>
         <div id="parcel-saturn"></div>
@@ -33,8 +33,8 @@ export default {
   methods: {
     loadParcel() {
       /*global System*/
-      this.first = mountParcel(() => System.import("sample-vue-parcel"), {
-        domElement: document.getElementById("parcel"),
+      this.first = mountParcel(() => System.import("parcel-crew-manifest"), {
+        domElement: document.getElementById("parcel-crew-manifest"),
       });
 
       /*global System*/
