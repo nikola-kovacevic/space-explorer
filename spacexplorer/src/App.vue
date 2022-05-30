@@ -21,15 +21,5 @@
 <script>
 export default {
   name: "spacexplorer",
-  data() {
-    return {
-      initialShow: true,
-      header: "",
-      links: [
-        { name: "Dashboard", href: { name: "home" } },
-        { name: "Space", href: { name: "space" } },
-      ],
-    };
-  },
 };
 </script>
