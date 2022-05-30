@@ -887,11 +887,6 @@
     cssnano-preset-default "^4.0.0"
     postcss "^7.0.0"
 
-"@jurajkavka/vue-hamburger-button@^1.0.6":
-  version "1.0.6"
-  resolved "https://registry.yarnpkg.com/@jurajkavka/vue-hamburger-button/-/vue-hamburger-button-1.0.6.tgz#6a1122675e6387f5e2709d0883ed2cc923fdf3b1"
-  integrity sha512-69L2m6nN81PSyOQHWfrbHu3qaroLfb56VARBycEEnBHirrT52EhxPf9+byB/UzIwwGfvTWc/5UfZzHIMGtOGmg==
-
 "@mrmlnc/readdir-enhanced@^2.2.1":
   version "2.2.1"
   resolved "https://registry.npm.taobao.org/@mrmlnc/readdir-enhanced/download/@mrmlnc/readdir-enhanced-2.2.1.tgz"
@@ -8225,13 +8220,6 @@ vm-browserify@^1.0.1:
   version "1.1.2"
   resolved "https://registry.npm.taobao.org/vm-browserify/download/vm-browserify-1.1.2.tgz"
   integrity sha1-eGQcSIuObKkadfUR56OzKobl3aA=
-
-vue-bootstrap-sidebar@^1.0.9:
-  version "1.0.9"
-  resolved "https://registry.yarnpkg.com/vue-bootstrap-sidebar/-/vue-bootstrap-sidebar-1.0.9.tgz#fa54066c90d4c15ff848fae34256dd568d0c0112"
-  integrity sha512-OG9WE9PNEr0xbYtgOF0KaX6t0Lbcy15LAKpwoojgegCjr4Aa+cPN9zSv0vsrqdFXpXpHWH6CHE4GXOjH6iUtxQ==
-  dependencies:
-    "@jurajkavka/vue-hamburger-button" "^1.0.6"
 
 vue-cli-plugin-single-spa@^1.0.1:
   version "1.3.2"

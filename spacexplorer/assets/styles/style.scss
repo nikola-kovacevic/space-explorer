@@ -1,47 +1,64 @@
-@import '../../node_modules/bootstrap/dist/css/bootstrap.css';
-@import '../../node_modules/bootstrap-vue/dist/bootstrap-vue.css';
+@import "../../node_modules/bootstrap/dist/css/bootstrap.css";
+@import "../../node_modules/bootstrap-vue/dist/bootstrap-vue.css";
 
-@import "../../node_modules/vue-bootstrap-sidebar/src/scss/default-theme";
+body {
+  background: #a1a2a6 !important;
+}
+
+#app {
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #003153;
+
+  .navbar {
+    padding: 8px 10px !important;
+  }
+}
 
 #parcel-saturn {
   width: 100%;
   background: black;
 }
 
-div.py-3 {
-  div.row {
-    div.dashboard-item {
-      min-height: 400px;
-      padding: 20px;
+.ml-auto {
+  margin-left: auto;
+}
 
-      .card {
-        border: 1px solid #111826;
-        border-radius: 25px;
-        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
-          0 6px 20px 0 rgba(0, 0, 0, 0.19);
-        overflow: hidden;
-        min-height: 100%;
-        background-image: linear-gradient(
-          99.9deg,
-          rgba(3, 9, 23, 1) 21.2%,
-          rgba(8, 21, 37, 1) 84.8%
-        );
+div.row {
+  div.dashboard-item {
+    min-height: 400px;
+    padding: 20px;
 
-        display: flex;
-        align-items: center;
-        justify-content: center;
+    .card {
+      border: 1px solid #111826;
+      border-radius: 25px;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+        0 6px 20px 0 rgba(0, 0, 0, 0.19);
+      overflow: hidden;
+      min-height: 100%;
+      background-image: linear-gradient(
+        99.9deg,
+        rgba(3, 9, 23, 1) 21.2%,
+        rgba(8, 21, 37, 1) 84.8%
+      );
 
-        .card-title {
-          color: #eee;
-          text-transform: uppercase;
-          font-weight: bold;
-        }
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      .card-title {
+        color: #eee;
+        text-transform: uppercase;
+        font-weight: bold;
+        text-align: center;
       }
     }
-    .central {
-      position: absolute;
-      top: 55%;
-    }
+  }
+  .central {
+    position: absolute;
+    top: 55%;
   }
 }
 
