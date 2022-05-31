@@ -2,6 +2,8 @@ import Vue from "vue";
 import Home from "./components/Home.vue";
 import singleSpaVue from "single-spa-vue";
 
+import "../assets/styles/style.scss";
+
 Vue.config.productionTip = false;
 
 const singleSpa = singleSpaVue({
@@ -12,6 +14,7 @@ const singleSpa = singleSpaVue({
 });
 
 export const name = "parcel-saturn";
+
 export const bootstrap = singleSpa.bootstrap;
 export const mount = singleSpa.mount;
 export const unmount = singleSpa.unmount;
