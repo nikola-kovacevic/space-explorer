@@ -6,6 +6,8 @@ import singleSpaVue from "single-spa-vue";
 import App from "./App.vue";
 import Space from "./components/Space.vue";
 
+import "../assets/styles/style.scss";
+
 Vue.config.productionTip = false;
 
 Vue.use(Router);
