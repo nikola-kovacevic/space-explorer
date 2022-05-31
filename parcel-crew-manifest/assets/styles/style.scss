@@ -1,7 +1,19 @@
-.h1-vue {
-    color: green;
-}
+.card {
+  .crew {
+    width: 100%;
+  }
+  .list-group {
+    width: 100%;
 
-.p-vue {
-    color: green;
+    .list-group-item {
+      color: white;
+      background: transparent;
+      justify-content: space-between;
+    }
+
+    .info {
+      color: #fff;
+      background-color: #17a2b8;
+    }
+  }
 }

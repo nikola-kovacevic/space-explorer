@@ -2,6 +2,8 @@ import Vue from "vue";
 import singleSpaVue from "single-spa-vue";
 import { BootstrapVue } from "bootstrap-vue";
 
+import "../assets/styles/style.scss";
+
 import Home from "./components/Home.vue";
 
 Vue.config.productionTip = false;
@@ -16,6 +18,7 @@ const singleSpa = singleSpaVue({
 });
 
 export const name = "parcel-crew-manifest";
+
 export const bootstrap = singleSpa.bootstrap;
 export const mount = singleSpa.mount;
 export const unmount = singleSpa.unmount;

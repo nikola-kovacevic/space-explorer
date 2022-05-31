@@ -1,6 +1,6 @@
 <template>
   <div class="crew">
-    <h3 class="card-title">Crew Manifest</h3>
+    <h3 class="card-title">{{ title }}</h3>
     <b-list-group class="bg-transparent">
       <b-list-group-item
         v-for="astronaut in astronauts"
@@ -9,9 +9,9 @@
       >
         <b-avatar :src="astronaut.avatar" class="mr-3"></b-avatar>
         <span class="ml-1 mr-auto">{{ astronaut.name }}</span>
-        <b-badge class="info" variant="light"
-          >{{ astronaut.count }} hours</b-badge
-        >
+        <b-badge class="info" variant="light">
+          {{ astronaut.count }} {{ time }}
+        </b-badge>
       </b-list-group-item>
     </b-list-group>
   </div>
@@ -22,6 +22,8 @@ export default {
   name: "home",
   data() {
     return {
+      title: "Crew Manifest",
+      time: "hours",
       astronauts: [
         {
           name: "Cinnabuns Pieplow",
@@ -48,25 +50,3 @@ export default {
   },
 };
 </script>
-
-<style lang="scss" scoped>
-.card {
-  .crew {
-    width: 100%;
-  }
-  .list-group {
-    width: 100%;
-
-    .list-group-item {
-      color: white;
-      background: transparent;
-      justify-content: space-between;
-    }
-
-    .info {
-      color: #fff;
-      background-color: #17a2b8;
-    }
-  }
-}
-</style>
