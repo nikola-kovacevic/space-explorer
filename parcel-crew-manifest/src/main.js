@@ -20,7 +20,13 @@ const singleSpa = singleSpaVue({
 export const name = "parcel-crew-manifest";
 
 export const bootstrap = singleSpa.bootstrap;
-export const mount = singleSpa.mount;
-export const unmount = singleSpa.unmount;
-export const update = (args) =>
-  Promise.resolve(console.log("[Parcel Crew Manifest]", args));
+
+export const mount = (args) =>
+  Promise.resolve(console.log("[Parcel Crew Manifest]", "Mounting parcel"))
+    .then(() => singleSpa.mount(args))
+    .then(() => console.log("[Parcel Crew Manifest]", "Parcel mounted"));
+
+export const unmount = (args) =>
+  Promise.resolve(console.log("[Parcel Crew Manifest]", "Unmounting parcel"))
+    .then(() => singleSpa.unmount(args))
+    .then(() => console.log("[Parcel Crew Manifest]", "Parcel unmounted"));

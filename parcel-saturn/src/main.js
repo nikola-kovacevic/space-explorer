@@ -16,7 +16,13 @@ const singleSpa = singleSpaVue({
 export const name = "parcel-saturn";
 
 export const bootstrap = singleSpa.bootstrap;
-export const mount = singleSpa.mount;
-export const unmount = singleSpa.unmount;
-export const update = (args) =>
-  Promise.resolve(console.log("[Parcel Saturn]", args));
+
+export const mount = (args) =>
+  Promise.resolve(console.log("[Parcel Saturn]", "Mounting parcel"))
+    .then(() => singleSpa.mount(args))
+    .then(() => console.log("[Parcel Saturn]", "Parcel mounted"));
+
+export const unmount = (args) =>
+  Promise.resolve(console.log("[Parcel Saturn]", "Unmounting parcel"))
+    .then(() => singleSpa.unmount(args))
+    .then(() => console.log("[Parcel Saturn]", "Parcel unmounted"));

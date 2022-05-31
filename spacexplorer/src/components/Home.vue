@@ -13,16 +13,21 @@
 
     <b-row>
       <b-col class="dashboard-item" sm>
-        <div id="parcel-crew-manifest" class="card p-4">
-          <h2 class="warning" v-if="!crewManifest">
+        <div class="card p-4" v-if="!crewManifestMounted">
+          <h2 class="warning">
             {{ notMounted }}
           </h2>
         </div>
+        <div
+          id="parcel-crew-manifest"
+          class="card p-4"
+          :style="crewManifestMounted ? 'display: flex' : 'display: none'"
+        ></div>
       </b-col>
       <b-col class="dashboard-item" sm>
         <div class="card">
           <b-button class="big-red-button" @click="buttonPressed()">
-            {{ getCrew }}
+            {{ !crewManifestMounted ? getCrew : ejectCrew }}
           </b-button>
         </div>
       </b-col>
@@ -43,26 +48,49 @@ export default {
       saturn: null,
       notMounted: "Crew manifest is not mounted 😢",
       getCrew: "Get crew",
+      ejectCrew: "Eject crew",
+      crewManifestMounted: false,
     };
   },
-  mounted() {
-    this.loadParcel();
+  async mounted() {
+    await this.loadParcelSaturn();
   },
   methods: {
-    loadParcel() {
-      this.saturn = mountParcel(() => System.import("parcel-saturn"), {
+    async loadParcelSaturn() {
+      console.log("[Application SpaceXPlorer]", "Mounting Saturn");
+
+      this.saturn = await mountParcel(() => System.import("parcel-saturn"), {
         domElement: document.getElementById("parcel-saturn"),
       });
     },
-    buttonPressed() {
-      if (!this.crewManifest || this.crewManifest.getStatus() !== "MOUNTED") {
-        this.crewManifest = mountParcel(
-          () => System.import("parcel-crew-manifest"),
-          {
-            domElement: document.getElementById("parcel-crew-manifest"),
-          }
-        );
-      }
+
+    async buttonPressed() {
+      return this.crewManifestMounted
+        ? this.unmountCrewManifest()
+        : this.mountCrewManifest();
+    },
+
+    async unmountCrewManifest() {
+      console.log("[Application SpaceXPlorer]", "Unmounting Crew Manifest");
+
+      return this.crewManifest
+        .unmount()
+        .then(() => (this.crewManifestMounted = !this.crewManifestMounted));
+    },
+
+    async mountCrewManifest() {
+      console.log("[Application SpaceXPlorer]", "Mounting Crew Manifest");
+
+      this.crewManifest = await mountParcel(
+        () => System.import("parcel-crew-manifest"),
+        {
+          domElement: document.getElementById("parcel-crew-manifest"),
+        }
+      );
+
+      return Promise.resolve(
+        (this.crewManifestMounted = !this.crewManifestMounted)
+      );
     },
   },
   components: { Gauge },
