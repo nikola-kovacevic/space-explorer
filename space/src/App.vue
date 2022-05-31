@@ -40,10 +40,17 @@ export default {
     listen() {
       this.listener = addEventListener("astronautDeployed", (event) => {
         if (this.deployedAstronautName) {
-          return console.log(`${this.deployedAstronautName} already deployed`);
+          return console.log(
+            "[Application Space]",
+            `${this.deployedAstronautName} already deployed`
+          );
         }
         this.deployedAstronautName = event.detail.name;
-        console.log("Deploying astronaut", this.deployedAstronautName);
+        console.log(
+          "[Application Space]",
+          "Deploying astronaut",
+          this.deployedAstronautName
+        );
       });
     },
   },

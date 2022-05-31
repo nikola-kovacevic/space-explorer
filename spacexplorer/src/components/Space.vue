@@ -18,7 +18,7 @@ export default {
   },
   methods: {
     deployAstronaut() {
-      console.log("Deploying astronaut");
+      console.log("[Application SpaceXPlorer]", "Deploying astronaut");
       dispatchEvent(
         new CustomEvent("astronautDeployed", {
           detail: { name: "Cinnabuns " },
