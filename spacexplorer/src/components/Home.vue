@@ -88,8 +88,8 @@ export default {
         }
       );
 
-      return Promise.resolve(
-        (this.crewManifestMounted = !this.crewManifestMounted)
+      return Promise.resolve().then(
+        () => (this.crewManifestMounted = !this.crewManifestMounted)
       );
     },
   },

@@ -6,7 +6,7 @@
     @click="deployAstronaut()"
     variant="danger"
   >
-    <b>{{ title }}</b>
+    <strong>{{ title }}</strong>
   </b-button>
 </template>
 <script>
