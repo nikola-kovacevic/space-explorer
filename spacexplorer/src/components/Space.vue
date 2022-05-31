@@ -6,17 +6,22 @@
     @click="deployAstronaut()"
     variant="danger"
   >
-    <b>Deploy astronaut</b>
+    <b>{{ title }}</b>
   </b-button>
 </template>
 <script>
 export default {
+  data() {
+    return {
+      title: "Deploy astronaut",
+    };
+  },
   methods: {
     deployAstronaut() {
-      console.log("Deployed astronaut from spacexplorer microfrontend");
+      console.log("Deploying astronaut");
       dispatchEvent(
         new CustomEvent("astronautDeployed", {
-          detail: { name: "Astronaut" },
+          detail: { name: "Cinnabuns " },
         })
       );
     },
