@@ -19,7 +19,6 @@ Vue.use(Router);
 Vue.use(BootstrapVue);
 
 Vue.component("Rocket", Rocket);
-
 Vue.component("vue-gauge", VueGauge);
 
 export let mountParcel;
@@ -57,4 +56,3 @@ export const bootstrap = [
 ];
 export const mount = singleSpa.mount;
 export const unmount = singleSpa.unmount;
-export const update = singleSpa.update;

@@ -28,6 +28,12 @@ body {
   background: black;
 }
 
+// HEADERS
+h2.warning {
+  color: white;
+  text-transform: uppercase;
+}
+
 // CONTENT
 div.row {
   div.dashboard-item {
@@ -72,8 +78,6 @@ div.row {
         text-transform: uppercase;
         transition: 0.4s all ease-in !important;
         outline: none;
-        -webkit-user-select: none;
-        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
       }
     }
   }
