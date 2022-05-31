@@ -27,7 +27,7 @@ $shadow: ();
 @for $i from 1 through $n {
   $v: random(90) + 9; // left
   $h: random(250) + 50; // top
-  $d: random(70) / 10 + 3;
+  $d: calc(random(70) / 10) + 3;
   .meteor-#{$i} {
     position: absolute;
     top: $h + px;
