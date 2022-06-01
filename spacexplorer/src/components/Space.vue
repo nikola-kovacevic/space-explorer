@@ -10,6 +10,8 @@
   </b-button>
 </template>
 <script>
+import { log } from "../services/log";
+
 export default {
   data() {
     return {
@@ -18,12 +20,13 @@ export default {
   },
   methods: {
     deployAstronaut() {
-      console.log("[Application SpaceXPlorer]", "Deploying astronaut");
-      dispatchEvent(
-        new CustomEvent("astronautDeployed", {
-          detail: { name: "Cinnabuns", surname: "Pieplow" },
-        })
-      );
+      log("Deploying astronaut");
+
+      const deployAstronautEvent = new CustomEvent("astronautDeployed", {
+        detail: { name: "Cinnabuns", surname: "Pieplow" },
+      });
+
+      return dispatchEvent(deployAstronautEvent);
     },
   },
 };

@@ -36,7 +36,8 @@
 </template>
 
 <script>
-import { mountParcel } from "../main.js";
+import { mountParcel } from "../main";
+import { log } from "../services/log";
 import Gauge from "./Gauge.vue";
 
 export default {
@@ -52,42 +53,46 @@ export default {
       crewManifestMounted: false,
     };
   },
-  async mounted() {
-    await this.loadParcelSaturn();
-  },
-  methods: {
-    async loadParcelSaturn() {
-      console.log("[Application SpaceXPlorer]", "Mounting Saturn");
 
+  async mounted() {
+    await this.mountParcelSaturn();
+  },
+
+  methods: {
+    async mountParcelSaturn() {
+      log("Mounting Saturn");
+
+      const domElement = document.getElementById("parcel-saturn");
       this.saturn = await mountParcel(() => System.import("parcel-saturn"), {
-        domElement: document.getElementById("parcel-saturn"),
+        domElement,
       });
     },
 
+    async unmountCrewManifest() {
+      return this.crewManifest.unmount().then(this.updateCrewManifestState);
+    },
+
+    async mountCrewManifest() {
+      const domElement = document.getElementById("parcel-crew-manifest");
+      this.crewManifest = await mountParcel(
+        () => System.import("parcel-crew-manifest"),
+        { domElement }
+      );
+
+      return this.updateCrewManifestState();
+    },
+
     async buttonPressed() {
+      const message = this.crewManifestMounted ? "Mounting" : "Unmounting";
+
+      log(`${message} Crew Manifest`);
+
       return this.crewManifestMounted
         ? this.unmountCrewManifest()
         : this.mountCrewManifest();
     },
 
-    async unmountCrewManifest() {
-      console.log("[Application SpaceXPlorer]", "Unmounting Crew Manifest");
-
-      return this.crewManifest
-        .unmount()
-        .then(() => (this.crewManifestMounted = !this.crewManifestMounted));
-    },
-
-    async mountCrewManifest() {
-      console.log("[Application SpaceXPlorer]", "Mounting Crew Manifest");
-
-      this.crewManifest = await mountParcel(
-        () => System.import("parcel-crew-manifest"),
-        {
-          domElement: document.getElementById("parcel-crew-manifest"),
-        }
-      );
-
+    async updateCrewManifestState() {
       return Promise.resolve().then(
         () => (this.crewManifestMounted = !this.crewManifestMounted)
       );

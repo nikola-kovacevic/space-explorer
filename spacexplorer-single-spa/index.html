@@ -3,13 +3,14 @@
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>SpaceXPlorer with Microfrontends</title>
+    <title>SpaceXPlorer Microfrontends</title>
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
     <meta name="importmap-type" content="systemjs-importmap" />
 
+    <!-- IMPORT MAP -->
     <script type="systemjs-importmap" crossorigin>
       {
         "imports": {
@@ -23,6 +24,7 @@
         }
       }
     </script>
+
     <!-- PRELOADS -->
     <link
       rel="preload"
@@ -52,6 +54,7 @@
   </head>
 
   <body>
+    <!-- REGISTER AND START MICROFRONTENDS -->
     <script>
       Promise.all([
         System.import("single-spa"),
@@ -75,6 +78,7 @@
         singleSpa.start();
       });
     </script>
+
     <!-- See https://github.com/joeldenning/import-map-overrides#user-interface  -->
     <import-map-overrides-full
       show-when-local-storage="overrides-ui"

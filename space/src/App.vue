@@ -5,7 +5,7 @@
 
     <img
       class="astronaut"
-      v-bind:class="{ deployed: deployedAstronautName }"
+      v-bind:class="{ deployed }"
       :src="getPic(astronaut)"
       alt="astronaut"
     />
@@ -23,36 +23,38 @@
 </template>
 
 <script>
+import { log } from "./services/log";
+
 export default {
   name: "space",
   data() {
     return {
-      meteors: new Array(20).fill("meteor").map((el, i) => `${el}-${i + 1}`),
+      meteors: new Array(50).fill("").map((_, i) => `meteor-${i + 1}`),
       astronaut: "astronaut",
-      deployedAstronautName: "",
+      deployed: false,
     };
   },
+
   mounted() {
     this.listen();
   },
-  methods: {
-    getPic: (name) => `./../../public/images/${name}.png`,
-    listen() {
-      this.listener = addEventListener("astronautDeployed", (event) => {
-        if (this.deployedAstronautName) {
-          return console.log(
-            "[Application Space]",
-            `${this.deployedAstronautName} already deployed`
-          );
-        }
 
-        this.deployedAstronautName = event.detail.name;
-        console.log(
-          "[Application Space]",
-          "Deploying astronaut",
-          this.deployedAstronautName
-        );
-      });
+  methods: {
+    getPic(name) {
+      return `./../../public/images/${name}.png`;
+    },
+
+    listen() {
+      addEventListener("astronautDeployed", ({ detail }) =>
+        this.deployed
+          ? log(`Astronaut is already deployed`)
+          : this.deployAstronaut(detail.name)
+      );
+    },
+
+    deployAstronaut(name) {
+      this.deployed = !!name;
+      return log(`Deploying astronaut ${name}`);
     },
   },
 };
