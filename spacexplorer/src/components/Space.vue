@@ -21,7 +21,7 @@ export default {
       console.log("[Application SpaceXPlorer]", "Deploying astronaut");
       dispatchEvent(
         new CustomEvent("astronautDeployed", {
-          detail: { name: "Cinnabuns " },
+          detail: { name: "Cinnabuns", surname: "Pieplow" },
         })
       );
     },

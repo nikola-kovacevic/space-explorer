@@ -4,7 +4,7 @@ import { BootstrapVue } from "bootstrap-vue";
 
 import "../assets/styles/style.scss";
 
-import Home from "./components/Home.vue";
+import App from "./App.vue";
 
 Vue.config.productionTip = false;
 
@@ -13,7 +13,7 @@ Vue.use(BootstrapVue);
 const singleSpa = singleSpaVue({
   Vue,
   appOptions: {
-    render: (h) => h(Home),
+    render: (h) => h(App),
   },
 });
 

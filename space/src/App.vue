@@ -45,6 +45,7 @@ export default {
             `${this.deployedAstronautName} already deployed`
           );
         }
+
         this.deployedAstronautName = event.detail.name;
         console.log(
           "[Application Space]",

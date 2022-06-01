@@ -1,6 +1,7 @@
 import Vue from "vue";
-import Home from "./components/Home.vue";
 import singleSpaVue from "single-spa-vue";
+
+import App from "./App.vue";
 
 import "../assets/styles/style.scss";
 
@@ -9,7 +10,7 @@ Vue.config.productionTip = false;
 const singleSpa = singleSpaVue({
   Vue,
   appOptions: {
-    render: (h) => h(Home),
+    render: (h) => h(App),
   },
 });
 

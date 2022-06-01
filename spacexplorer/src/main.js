@@ -47,14 +47,11 @@ const singleSpa = singleSpaVue({
 });
 
 export const name = "spacexplorer";
-
 export const bootstrap = [
   (props) => {
     mountParcel = props.mountParcel;
     return Promise.resolve();
   },
 ];
-
 export const mount = singleSpa.mount;
-
 export const unmount = singleSpa.unmount;
