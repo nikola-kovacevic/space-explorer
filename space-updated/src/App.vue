@@ -48,7 +48,7 @@ export default {
       addEventListener("astronautDeployed", ({ detail }) =>
         this.deployed
           ? log(`Astronaut is already deployed`)
-          : this.deployAstronaut(detail.name)
+          : this.deployAstronaut(`${detail.name} ${detail.surname}`)
       );
     },
 

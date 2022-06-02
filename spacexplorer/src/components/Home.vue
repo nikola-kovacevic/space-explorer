@@ -83,9 +83,9 @@ export default {
     },
 
     async buttonPressed() {
-      const message = this.crewManifestMounted ? "Mounting" : "Unmounting";
-
-      log(`${message} Crew Manifest`);
+      log(
+        `${this.crewManifestMounted ? "Mounting" : "Unmounting"} Crew Manifest`
+      );
 
       return this.crewManifestMounted
         ? this.unmountCrewManifest()
